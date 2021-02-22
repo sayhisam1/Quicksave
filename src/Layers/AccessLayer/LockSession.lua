@@ -4,8 +4,9 @@ local Promise = require(script.Parent.Parent.Parent.Parent.Promise)
 local getTime = require(script.Parent.Parent.Parent.getTime).getTime
 
 local HttpService = game:GetService("HttpService")
+local RunService = game:GetService("RunService")
 
-local LOCK_EXPIRE = 60 * 5
+local LOCK_EXPIRE = (RunService:IsStudio() and 1) or 60 * 5
 local WRITE_MAX_INTERVAL = 7
 
 local function consistencyError()
